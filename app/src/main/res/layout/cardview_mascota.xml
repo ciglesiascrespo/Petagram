@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/activity_horizontal_margin"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:layout_height="@dimen/height_cardview"
+    android:elevation="@dimen/elevation_cardview">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/id_img_mascota_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:src="@drawable/img_mascota_1" />
+
+        <LinearLayout
+            android:id="@+id/id_relative"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/id_linear_like"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/activity_horizontal_margin">
+
+                <ImageButton
+                    android:id="@+id/id_img_btn_like_cardview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_like_selector"
+                    android:scaleType="center" />
+
+                <TextView
+                    android:id="@+id/id_txt_nombre_mascota_cardview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_left_nombre_mascota"
+                    android:gravity="center_vertical"
+                    android:text="@string/nombre_mascota"
+                    android:textSize="@dimen/textsize_nombre_mascota"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/activity_horizontal_margin">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/dog_bone_nro_like" />
+
+                <TextView
+                    android:id="@+id/id_txt_nro_like_mascota_cardview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nro_likes"
+                    android:textSize="@dimen/textsize_nombre_mascota"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
