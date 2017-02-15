@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.ciglesias.petagram.R;
 import com.ciglesias.petagram.adaptor.MascotaAdaptador;
+import com.ciglesias.petagram.db.BaseDatos;
 import com.ciglesias.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class MascotasFavoritas extends AppCompatActivity {
 
         myToolbar = (Toolbar) findViewById(R.id.id_toolbar);
 
-
+        BaseDatos baseDatos = new BaseDatos(this);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Mascotas favoritas");
@@ -35,19 +36,14 @@ public class MascotasFavoritas extends AppCompatActivity {
 
         listMascotasFavoritas = new ArrayList<>();
 
-        listMascotasFavoritas.add(new Mascota("Alex", 0, R.drawable.img_mascota_1));
-        listMascotasFavoritas.add(new Mascota("Dante", 2, R.drawable.img_mascota_2));
-        listMascotasFavoritas.add(new Mascota("Kelpie", 3, R.drawable.img_mascota_3));
-        listMascotasFavoritas.add(new Mascota("Kiba", 5, R.drawable.img_mascota_4));
-        listMascotasFavoritas.add(new Mascota("Akamaru", 0, R.drawable.img_mascota_5));
-
+        listMascotasFavoritas = baseDatos.obtenerUltimasMascotas(5);
 
         recyclerViewMascotasFavoritas = (RecyclerView) findViewById(R.id.id_recyclerview_favoritas);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(listMascotasFavoritas);
+        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(listMascotasFavoritas,this);
 
         recyclerViewMascotasFavoritas.setLayoutManager(linearLayoutManager);
         recyclerViewMascotasFavoritas.setAdapter(mascotaAdaptador);

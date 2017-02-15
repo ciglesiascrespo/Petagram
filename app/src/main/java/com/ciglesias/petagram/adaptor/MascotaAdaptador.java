@@ -1,5 +1,6 @@
 package com.ciglesias.petagram.adaptor;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ciglesias.petagram.R;
+import com.ciglesias.petagram.db.BaseDatos;
 import com.ciglesias.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -18,9 +20,11 @@ import java.util.ArrayList;
  */
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
     ArrayList<Mascota> listMascotas;
+    BaseDatos baseDatos;
 
-    public MascotaAdaptador(ArrayList<Mascota> listMascotas) {
+    public MascotaAdaptador(ArrayList<Mascota> listMascotas, Context context) {
         this.listMascotas = listMascotas;
+        baseDatos = new BaseDatos(context);
     }
 
     @Override
@@ -41,6 +45,8 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             @Override
             public void onClick(View v) {
                 listMascotas.get(position).setNroLikes(itemMascota.getNroLikes() + 1);
+                baseDatos.actualizarNroLike(listMascotas.get(position));
+                baseDatos.insertarMascotaLike(listMascotas.get(position).getIdMascota());
                 notifyDataSetChanged();
             }
         });

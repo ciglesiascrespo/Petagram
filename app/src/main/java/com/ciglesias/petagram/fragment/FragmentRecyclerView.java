@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.ciglesias.petagram.R;
 import com.ciglesias.petagram.adaptor.MascotaAdaptador;
+import com.ciglesias.petagram.db.BaseDatos;
 import com.ciglesias.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -32,23 +33,16 @@ public class FragmentRecyclerView extends Fragment {
         View v = inflater.inflate(R.layout.fragment_fragment_recycler_view, container, false);
 
         listMascotas = new ArrayList<>();
+        BaseDatos baseDatos = new BaseDatos(getContext());
 
-        listMascotas.add(new Mascota("Alex", 0, R.drawable.img_mascota_1));
-        listMascotas.add(new Mascota("Dante", 2, R.drawable.img_mascota_2));
-        listMascotas.add(new Mascota("Kelpie", 3, R.drawable.img_mascota_3));
-        listMascotas.add(new Mascota("Kiba", 5, R.drawable.img_mascota_4));
-        listMascotas.add(new Mascota("Akamaru", 0, R.drawable.img_mascota_5));
-        listMascotas.add(new Mascota("Tyson", 0, R.drawable.img_mascota_6));
-        listMascotas.add(new Mascota("Tom", 0, R.drawable.img_mascota_7));
-        listMascotas.add(new Mascota("Toby", 0, R.drawable.img_mascota_8));
-        listMascotas.add(new Mascota("Firulais", 0, R.drawable.img_mascota_9));
+        listMascotas = baseDatos.obtenerTodasLasMAscotas();
 
         recyclerViewMascotas = (RecyclerView) v.findViewById(R.id.id_recyclerview);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(listMascotas);
+        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(listMascotas,getContext());
 
         recyclerViewMascotas.setLayoutManager(linearLayoutManager);
         recyclerViewMascotas.setAdapter(mascotaAdaptador);
