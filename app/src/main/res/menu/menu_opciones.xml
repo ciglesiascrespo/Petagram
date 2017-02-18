@@ -7,4 +7,14 @@
         android:orderInCategory="102"
         android:title="@string/menu_favoritos"
         app:showAsAction="always"></item>
+    <item
+        android:id="@+id/mContacto"
+        android:orderInCategory="103"
+        android:title="@string/menu_contacto"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/mAcercaDe"
+         android:orderInCategory="104"
+        android:title="@string/menu_acerca_de"
+        app:showAsAction="never"></item>
 </menu>

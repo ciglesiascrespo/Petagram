@@ -4,7 +4,15 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="elevation_cardview">1dp</dimen>
     <dimen name="height_cardview">250dp</dimen>
+    <dimen name="height_cardview_mi_mascota">100dp</dimen>
     <dimen name="margin_left_nombre_mascota">5dp</dimen>
     <dimen name="textsize_nombre_mascota">20sp</dimen>
-
+    <dimen name="textsize_nombre_mi_mascota">30sp</dimen>
+    <dimen name="padin_linear">10dp</dimen>
+    <dimen name="margint_btn_enviar">50dp</dimen>
+    <dimen name="size_img_perfil">156dp</dimen>
+    <dimen name="border_img_perfil">2dp</dimen>
+    <dimen name="elevation_appbar">4dp</dimen>
+    <dimen name="size_img_perfil_mi_mascota">100dp</dimen>
+    <dimen name="padding_cardview_mi_mascota">8dp</dimen>
 </resources>

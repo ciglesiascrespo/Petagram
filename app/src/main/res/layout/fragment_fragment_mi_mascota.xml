@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="@dimen/size_img_perfil_mi_mascota"
+            android:layout_height="@dimen/size_img_perfil_mi_mascota"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_color="@color/colorAccent"
+            app:civ_border_width="@dimen/border_img_perfil"
+            app:civ_shadow="true"
+            app:civ_shadow_color="@color/colorAccent"
+            app:civ_shadow_radius="5"
+            android:src="@drawable/img_kelpie8"
+            android:layout_marginTop="@dimen/activity_vertical_margin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/kelpie"
+            android:textSize="@dimen/textsize_nombre_mi_mascota"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.RecyclerView
+
+            android:id="@+id/id_recyclerview_mi_mascota"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
