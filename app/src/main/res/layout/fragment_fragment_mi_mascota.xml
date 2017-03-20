@@ -18,13 +18,14 @@
             app:civ_border_color="@color/colorAccent"
             app:civ_border_width="@dimen/border_img_perfil"
             app:civ_shadow="true"
+            android:id="@+id/id_img_mascota_perfil"
             app:civ_shadow_color="@color/colorAccent"
             app:civ_shadow_radius="5"
-            android:src="@drawable/img_kelpie8"
             android:layout_marginTop="@dimen/activity_vertical_margin" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/id_txt_nombre_mascota_perfil"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/activity_vertical_margin"

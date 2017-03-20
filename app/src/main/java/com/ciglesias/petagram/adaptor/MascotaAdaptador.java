@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.ciglesias.petagram.R;
 import com.ciglesias.petagram.db.BaseDatos;
 import com.ciglesias.petagram.pojo.Mascota;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -21,10 +22,12 @@ import java.util.ArrayList;
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
     ArrayList<Mascota> listMascotas;
     BaseDatos baseDatos;
+    Context context;
 
     public MascotaAdaptador(ArrayList<Mascota> listMascotas, Context context) {
         this.listMascotas = listMascotas;
         baseDatos = new BaseDatos(context);
+        this.context = context;
     }
 
     @Override
@@ -39,7 +42,11 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
         holder.txtNombreMascota.setText(itemMascota.getNombre());
         holder.txtNroLikes.setText(String.valueOf(itemMascota.getNroLikes()));
-        holder.imgFoto.setImageResource(itemMascota.getIdImage());
+
+        Picasso.with(context)
+                .load(itemMascota.getIdImage())
+                .into(holder.imgFoto);
+//        holder.imgFoto.setImageResource(itemMascota.getIdImage());
 
         holder.imgBtnLike.setOnClickListener(new View.OnClickListener() {
             @Override

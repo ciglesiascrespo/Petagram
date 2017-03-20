@@ -25,6 +25,8 @@ public class BaseDatos extends SQLiteOpenHelper {
     }
 
     @Override
+
+
     public void onCreate(SQLiteDatabase db) {
         String queryCrearTablaMascota = "Create Table " + ConstantesBaseDatos.TABLE_MASCOTAS + "(" +
                 ConstantesBaseDatos.TABLE_MASCOTA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +

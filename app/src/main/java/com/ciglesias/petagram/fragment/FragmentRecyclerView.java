@@ -14,13 +14,16 @@ import com.ciglesias.petagram.R;
 import com.ciglesias.petagram.adaptor.MascotaAdaptador;
 import com.ciglesias.petagram.db.BaseDatos;
 import com.ciglesias.petagram.pojo.Mascota;
+import com.ciglesias.petagram.presentador.FragmentRecyclerViewPresenter;
+import com.ciglesias.petagram.presentador.IFragmentRecyclerViewPresenter;
 
 import java.util.ArrayList;
 
-public class FragmentRecyclerView extends Fragment {
+public class FragmentRecyclerView extends Fragment implements IFragmentRecyclerView {
 
     RecyclerView recyclerViewMascotas;
-    ArrayList<Mascota> listMascotas;
+
+    private IFragmentRecyclerViewPresenter presenter;
 
     public FragmentRecyclerView() {
 
@@ -31,24 +34,27 @@ public class FragmentRecyclerView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fragment_recycler_view, container, false);
-
-        listMascotas = new ArrayList<>();
-        BaseDatos baseDatos = new BaseDatos(getContext());
-
-        listMascotas = baseDatos.obtenerTodasLasMAscotas();
-
         recyclerViewMascotas = (RecyclerView) v.findViewById(R.id.id_recyclerview);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(listMascotas,getContext());
-
-        recyclerViewMascotas.setLayoutManager(linearLayoutManager);
-        recyclerViewMascotas.setAdapter(mascotaAdaptador);
-
+        presenter = new FragmentRecyclerViewPresenter(this, getContext());
         return v;
     }
 
 
+    @Override
+    public void generarLinearLayoutVertical() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewMascotas.setLayoutManager(linearLayoutManager);
+    }
+
+    @Override
+    public MascotaAdaptador crearAdaptador(ArrayList<Mascota> listMascotas) {
+        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(listMascotas, getContext());
+        return mascotaAdaptador;
+    }
+
+    @Override
+    public void inicializarAdaptadorRV(MascotaAdaptador adaptador) {
+        recyclerViewMascotas.setAdapter(adaptador);
+    }
 }

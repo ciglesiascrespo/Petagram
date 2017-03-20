@@ -5,11 +5,13 @@
     <string name="nro_likes">Numero</string>
     <string name="menu_favoritos">Favoritos</string>
     <string name="menu_contacto">Contacto</string>
+    <string name="menu_configurar_cuenta">Configurar cuenta</string>
     <string name="menu_acerca_de">Acerca de</string>
     <string name="hint_nombre">Nombre</string>
     <string name="hint_correo">Correo</string>
     <string name="hint_mensaje">Mensaje</string>
     <string name="str_btn_enviar">Enviar mensaje</string>
+    <string name="str_btn_guardar">Guardar cuenta</string>
     <string name="msj_enviando_correo">Enviando mensaje, por favor espere...</string>
     <string name="msj_enviado">Mensaje enviado</string>
     <string name="name_developer">Carlos Iglesias Crespo</string>
@@ -17,4 +19,7 @@
     <string name="mail_developer">Ciglesiascrespo@gmail.com</string>
     <string name="bio_developer">Estudiante de Ingeniería Electrónica en proceso de grado con responsabilidad, honestidad y respeto, facilidad de aprendizaje, capacidad  de Trabajo individual o grupal según sea necesario.</string>
     <string name="kelpie">Kelpie</string>
+    <string name="preferencia_usuario">usuario</string>
+    <string name="preferencia_datos_usuario">datos_usuario</string>
+    <string name="preferencia_guardada">Usuario guardado con éxito</string>
 </resources>

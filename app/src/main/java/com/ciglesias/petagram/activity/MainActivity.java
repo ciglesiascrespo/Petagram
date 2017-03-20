@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent iContacto = new Intent(MainActivity.this, Contacto.class);
                 startActivity(iContacto);
                 break;
+            case R.id.mConfigurarCuenta:
+                Intent iConfigurarCuenta = new Intent(MainActivity.this,ActivityUsuario.class);
+                startActivity(iConfigurarCuenta);
+                break;
             case R.id.mAcercaDe:
                 showDialogoAcercaDe();
                 break;
