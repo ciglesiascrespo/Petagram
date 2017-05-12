@@ -7,6 +7,7 @@
     <string name="menu_contacto">Contacto</string>
     <string name="menu_configurar_cuenta">Configurar cuenta</string>
     <string name="menu_acerca_de">Acerca de</string>
+    <string name="menu_regitrar_usuario">Recibir notificaciones</string>
     <string name="hint_nombre">Nombre</string>
     <string name="hint_correo">Correo</string>
     <string name="hint_mensaje">Mensaje</string>

@@ -1,7 +1,9 @@
 package com.ciglesias.petagram.activity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,14 +23,25 @@ import com.ciglesias.petagram.R;
 import com.ciglesias.petagram.adaptor.PageAdapter;
 import com.ciglesias.petagram.fragment.FragmentMiMascota;
 import com.ciglesias.petagram.fragment.FragmentRecyclerView;
+import com.ciglesias.petagram.restApi.IEndPointsApi;
+import com.ciglesias.petagram.restApi.adapter.RestApiAdapter;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar myToolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
 
+    SharedPreferences sharedPreferences;
+
+    private final String PREFERENCIA_USUARIO = "DatosUsuario";
+    private String userId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.id_tab);
         viewPager = (ViewPager) findViewById(R.id.id_viewpager);
+
+        sharedPreferences = getSharedPreferences(getResources().getString(R.string.preferencia_datos_usuario), Context.MODE_PRIVATE);
+        if (sharedPreferences != null) {
+            userId = sharedPreferences.getString(getResources().getString(R.string.preferencia_usuario), "");
+        }
 
 
         if (myToolbar != null) {
@@ -82,17 +101,37 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(iContacto);
                 break;
             case R.id.mConfigurarCuenta:
-                Intent iConfigurarCuenta = new Intent(MainActivity.this,ActivityUsuario.class);
+                Intent iConfigurarCuenta = new Intent(MainActivity.this, ActivityUsuario.class);
                 startActivity(iConfigurarCuenta);
                 break;
             case R.id.mAcercaDe:
                 showDialogoAcercaDe();
+                break;
+            case R.id.mRegistrarUsuario:
+                registrarUsuario();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    private void registrarUsuario() {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        IEndPointsApi endPointsApi = restApiAdapter.establecerConexionApiNode();
+        String idDispositivo = FirebaseInstanceId.getInstance().getToken();
+        Call<String> stringCall = endPointsApi.registrarUsuario(idDispositivo, userId);
+        stringCall.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.e("MainActivy", "ResponseNode: " + response.body());
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
 
     private void showDialogoAcercaDe() {
         final Dialog dialog = new Dialog(MainActivity.this);

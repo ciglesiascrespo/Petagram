@@ -14,12 +14,18 @@
         app:showAsAction="never"></item>
     <item
         android:id="@+id/mAcercaDe"
-         android:orderInCategory="104"
+        android:orderInCategory="104"
         android:title="@string/menu_acerca_de"
         app:showAsAction="never"></item>
     <item
         android:id="@+id/mConfigurarCuenta"
         android:orderInCategory="105"
         android:title="@string/menu_configurar_cuenta"
+        app:showAsAction="never"></item>
+
+    <item
+        android:id="@+id/mRegistrarUsuario"
+        android:orderInCategory="106"
+        android:title="@string/menu_regitrar_usuario"
         app:showAsAction="never"></item>
 </menu>

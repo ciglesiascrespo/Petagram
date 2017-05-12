@@ -15,9 +15,12 @@ public class ConstantesRestApi {
 
     public static final String URL_GET_RECIENT_MEDIA_SELF_USER = KEY_GET_RECIENT_MEDIA_SELF_USER + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
     public static final String URL_GET_RECIENT_MEDIA_USER = KEY_GET_RECIENT_MEDIA_USER + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
-    public static final String URL_GET_INFORMATION_USER_SEARCH = KEY_GET_INFORMATION_USER_SEARCH   + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
+    public static final String URL_GET_INFORMATION_USER_SEARCH = KEY_GET_INFORMATION_USER_SEARCH + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
 
 
+    // Api Node
+    public static final String ROOT_URL_NODE = "https://lit-fjord-42728.herokuapp.com/";
+    public static final String KEY_POST_REGISTRAR_USUARIO = "registrar-usuario/";
 
 
 }
